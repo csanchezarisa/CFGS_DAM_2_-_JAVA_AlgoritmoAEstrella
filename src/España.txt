@@ -1,0 +1,12 @@
+11
+LUGO:Lugo(0);Santander(390);Bilbao(-1);Pamplona(-1);Leon(221);Logroño(-1);Saragossa(-1);Barcelona(-1);Soria(-1);Madrid(-1);Valencia(-1)
+SANTANDER:Lugo(390);Santander(0);Bilbao(105);Pamplona(-1);Leon(269);Logroño(-1);Saragossa(-1);Barcelona(-1);Soria(353);Madrid(-1);Valencia(-1)
+BILBAO:Lugo(-1);Santander(105);Bilbao(0);Pamplona(157);Leon(-1);Logroño(153);Saragossa(-1);Barcelona(-1);Soria(-1);Madrid(-1);Valencia(-1)
+PAMPLONA:Lugo(-1);Santander(-1);Bilbao(157);Pamplona(0);Leon(-1);Logroño(86);Saragossa(172);Barcelona(-1);Soria(-1);Madrid(-1);Valencia(-1)
+LEON:Lugo(221);Santander(264);Bilbao(-1);Pamplona(-1);Leon(0);Logroño(290);Saragossa(-1);Barcelona(-1);Soria(311);Mardid(-1);Valencia(-1)
+LOGROÑO:Lugo(-1);Santander(-1);Bilbao(153);Pamplona(86);Leon(290);Logroño(0);Saragossa(171);Barcelona(-1);Soria(100);Mardid(327);Valencia(-1)
+SARAGOSSA:Lugo(-1);Santander(-1);Bilbao(-1);Pamplona(172);Leon(-1);Logroño(171);Saragossa(0);Barcelona(311);Soria(-1);Madrid(314);Valencia(-1)
+BARCELONA:Lugo(-1);Santander(-1);Bilbao(-1);Pamplona(-1);Leon(-1);Logroño(-1);Saragossa(311);Barcelona(0);Soria(-1);Madrid(-1);Valencia(374)
+SORIA:Lugo(-1);Santander(353);Bilbao(-1);Pamplona(-1);Leon(311);Logroño(100);Saragossa(-1);Barcelona(-1);Soria(0);Madrid(229);Valencia(-1)
+MADRID:Lugo(-1);Santander(-1);Bilbao(-1);Pamplona(-1);Leon(-1);Logroño(327);Saragossa(314);Barcelona(-1);Soria(229);Mardid(0);Valencia(355)
+VALENCIA:Lugo(-1);Santander(-1);Bilbao(-1);Pamplona(-1);Leon(-1);Logroño(-1);Saragossa(-1);Barcelona(374);Soria(-1);Madrid(355);Valencia(0)
