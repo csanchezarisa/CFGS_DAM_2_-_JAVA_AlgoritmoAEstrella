@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.Vector;
 
 public class Simulacio {
@@ -51,7 +52,8 @@ public class Simulacio {
 		String Pais=BRLectura.readLine();
 		//En cas de que tingui aquest Pais
 		if (Pais.toUpperCase().equals("ESPAÑA") || Pais.toUpperCase().equals("DEUTSHLAND")){
-			FileInputStream FitxerGPS= new FileInputStream(String.valueOf(Simulacio.class.getResource(Pais+".txt")));
+			URL direccionFichero = Simulacio.class.getResource(Pais + ".txt");
+			FileInputStream FitxerGPS= new FileInputStream(direccionFichero.getPath());
 			//Llegeixo
 			n=FitxerGPS.read();
 			//Obtinc caracter
