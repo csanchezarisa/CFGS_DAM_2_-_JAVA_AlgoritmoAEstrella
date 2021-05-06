@@ -46,13 +46,13 @@ public class Algoritmo {
         // Se generan los subnodos y se añaden a la lista 'L'
         L.addAll(generateSubNodes(N, names, distances));
 
+        // Se eliminan duplicados y se queda con el que tenga el coste mas bajo
+        deleteDuplicates(L);
+
         // Si la lista queda vacía porque no hay más
         // nodos para analizar se devuelve un Null
         if (L.size() == 0)
             return null;
-
-        // Se eliminan duplicados y se queda con el que tenga el coste mas bajo
-        deleteDuplicates(L);
 
         // Se ordenan los elementos de la lista de menor a mayor coste
         Collections.sort(L);
@@ -131,10 +131,14 @@ public class Algoritmo {
                 // Si hay algun nodo que se llame igual se añade a la lista de duplicados
                 // el que tenga más coste y no haya sido añadido todavía
                 if (city != subCity && city.getName().equalsIgnoreCase(subCity.getName())) {
-                    if (city.getCost() > subCity.getCost() && !duplicates.contains(city))
-                        duplicates.add(city);
-                    else if (!duplicates.contains(subCity))
-                        duplicates.add(subCity);
+                    if (city.getCost() > subCity.getCost()) {
+                        if (!duplicates.contains(city))
+                            duplicates.add(city);
+                    }
+                    else {
+                        if (!duplicates.contains(subCity))
+                            duplicates.add(subCity);
+                    }
                 }
             }
         }

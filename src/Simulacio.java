@@ -49,7 +49,7 @@ public class Simulacio {
 		//Llegeixo per teclat
 		String Pais=BRLectura.readLine();
 		//En cas de que tingui aquest Pais
-		if (Pais.toUpperCase().equals("ESPAÑA") || Pais.toUpperCase().equals("DEUTSHLAND")){
+		if (Pais.toUpperCase().equals("ESPANA") || Pais.toUpperCase().equals("DEUTSHLAND")){
 			URL direccionFichero = Simulacio.class.getResource(Pais + ".txt");
 			FileInputStream FitxerGPS= new FileInputStream(direccionFichero.getPath());
 			//Llegeixo
