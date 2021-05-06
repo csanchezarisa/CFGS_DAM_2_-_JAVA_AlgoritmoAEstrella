@@ -19,7 +19,6 @@ public class Simulacio {
 	static int C1;
 	static int C2;
 	static int n;
-	static Ciutats node;
 	//Conexio amb la classe GetSetTXT (Getters i Setters del TXT)
 	static GetSetTXT ObtencioValors = new GetSetTXT();
 	//Per poder llegir de teclat
@@ -32,7 +31,6 @@ public class Simulacio {
 	static String SNomCiutat="", SDistancia="", STotal="", CiutatDesti="", CiutatOrigen="";
 	//Obting caracter de lletra
 	static char lletra;
-	static Vector<Ciutats> L = new Vector();
 	static boolean b1=true;
 	static int Total=0;
 	static boolean Final=false;
@@ -210,8 +208,8 @@ public class Simulacio {
 
 	//Metode estructura Algoritme estrella
 	private static void AlgoritmeEstrella() {
-		
-		
-			}
+		Ciudad ciudad = Algoritmo.getBestRoute(VHome, VDistanciaCiutats, CiutatOrigen, CiutatDesti);
+		System.out.println(ciudad.getCost());
+	}
 	
 }
