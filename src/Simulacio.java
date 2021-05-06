@@ -209,7 +209,23 @@ public class Simulacio {
 	//Metode estructura Algoritme estrella
 	private static void AlgoritmeEstrella() {
 		Ciudad ciudad = Algoritmo.getBestRoute(VHome, VDistanciaCiutats, CiutatOrigen, CiutatDesti);
-		System.out.println(ciudad.getCost());
+		if (ciudad == null) {
+			System.out.println("No s'ha trobat una ruta òptima. Prova de nou entre diferents punts");
+		}
+		else {
+			System.out.println("La millor ruta per arribar a " + ciudad.getName() + " és la següent:");
+
+			for (int i = 0; i < ciudad.getRoute().size(); i++) {
+				if (i == ciudad.getRoute().size()) {
+					System.out.print(ciudad.getRoute().get(i).getName());
+				}
+				else {
+					System.out.print(ciudad.getRoute().get(i).getName() + " -> ");
+				}
+			}
+
+			System.out.println("\nAmb un cost de " + ciudad.getCost());
+		}
 	}
 	
 }
