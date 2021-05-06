@@ -51,7 +51,7 @@ public class Simulacio {
 		//Llegeixo per teclat
 		String Pais=BRLectura.readLine();
 		//En cas de que tingui aquest Pais
-		if (Pais.toUpperCase().equals("ESPAÑA") || Pais.toUpperCase().equals("DEUTSHLAND")){
+		if (Pais.toUpperCase().equals("ESPAÃ‘A") || Pais.toUpperCase().equals("DEUTSHLAND")){
 			URL direccionFichero = Simulacio.class.getResource(Pais + ".txt");
 			FileInputStream FitxerGPS= new FileInputStream(direccionFichero.getPath());
 			//Llegeixo
@@ -86,7 +86,7 @@ public class Simulacio {
 					else{
 						//Si es 2 punts
 						if (lletra==':'){
-							//Enllaç amb  GetSetTXT
+							//Enllaï¿½ amb  GetSetTXT
 							ObtencioValors = new GetSetTXT();
 							//Relleno informacio
 							ObtencioValors.LlocActual = SNomCiutat.trim();
@@ -188,7 +188,7 @@ public class Simulacio {
 		//En els diferents casos d'errors
 		else{
 			//Si ho escriuen en l'idiome incorrecte
-			if (Pais.toUpperCase().equals("ALEMANYA") || Pais.toUpperCase().equals("ALEMAÑA") || Pais.toUpperCase().equals("GERMANY") || Pais.toUpperCase().equals("SPAIN") || Pais.toUpperCase().equals("SPANIEN")){
+			if (Pais.toUpperCase().equals("ALEMANYA") || Pais.toUpperCase().equals("ALEMAï¿½A") || Pais.toUpperCase().equals("GERMANY") || Pais.toUpperCase().equals("SPAIN") || Pais.toUpperCase().equals("SPANIEN")){
 				System.out.println("Aquest pais es diu aixi aqui i a la Xina popular.");
 			}
 			else{
