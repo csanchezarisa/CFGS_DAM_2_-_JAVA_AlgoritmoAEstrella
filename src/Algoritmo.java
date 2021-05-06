@@ -45,15 +45,16 @@ public class Algoritmo {
         if (L.size() == 0)
             return null;
 
-        // Se extrae en nodo a analizar y se elimina de la lista
-        N = L.get(0);
-        L.remove(0);
-
         // Se eliminan duplicados y se queda con el que tenga el coste mas bajo
         deleteDuplicates(L);
 
         // Se ordenan los elementos de la lista de menor a mayor coste
         Collections.sort(L);
+
+
+        // Se extrae en nodo a analizar y se elimina de la lista
+        N = L.get(0);
+        L.remove(0);
 
         return searchAlgorithm(N, L, names, distances, to);
     }
@@ -82,7 +83,8 @@ public class Algoritmo {
 
                 if (createCity) {
 
-                    ArrayList<Ciudad> route = N.getRoute();
+                    ArrayList<Ciudad> route = new ArrayList<>();
+                    route.addAll(N.getRoute());
                     route.add(N);
 
                     Ciudad subCity = new Ciudad(

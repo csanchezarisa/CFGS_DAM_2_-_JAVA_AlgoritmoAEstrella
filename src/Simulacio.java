@@ -216,7 +216,7 @@ public class Simulacio {
 			System.out.println("La millor ruta per arribar a " + ciudad.getName() + " és la següent:");
 
 			for (int i = 0; i < ciudad.getRoute().size(); i++) {
-				if (i == ciudad.getRoute().size()) {
+				if (i == (ciudad.getRoute().size() - 1)) {
 					System.out.print(ciudad.getRoute().get(i).getName());
 				}
 				else {
