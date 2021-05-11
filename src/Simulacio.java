@@ -204,7 +204,10 @@ public class Simulacio {
 
 	//Metode estructura Algoritme estrella
 	private static void AlgoritmeEstrella() {
+		long startTime = System.nanoTime();
 		Ciudad ciudad = Algoritmo.getBestRoute(VHome, VDistanciaCiutats, CiutatOrigen, CiutatDesti);
+		long stopTime = System.nanoTime();
+		System.out.println("Temps d'execucio de l'algorisme: " + (stopTime - startTime) + "ns");
 		if (ciudad == null) {
 			System.out.println("No s'ha trobat una ruta òptima. Prova de nou entre diferents punts");
 		}
