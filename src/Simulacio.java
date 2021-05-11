@@ -3,13 +3,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Vector;
 
 public class Simulacio {
 
 	/**
-	 * @param args
-	 * @throws IOException 
 	 */
 	//Variables necessaries
 	//Arrays 1 i 2 dimensions
@@ -22,8 +19,8 @@ public class Simulacio {
 	//Conexio amb la classe GetSetTXT (Getters i Setters del TXT)
 	static GetSetTXT ObtencioValors = new GetSetTXT();
 	//Per poder llegir de teclat
-	static InputStreamReader ISRLectura = new InputStreamReader(System.in);
-	static BufferedReader BRLectura=new BufferedReader(ISRLectura);
+	static final InputStreamReader ISRLectura = new InputStreamReader(System.in);
+	static final BufferedReader BRLectura=new BufferedReader(ISRLectura);
 	//Variables necessaries
 	//Boleans per distingir Ciutat i distancia
 	static boolean BCiutat=true,BDistancia=false;
@@ -31,9 +28,6 @@ public class Simulacio {
 	static String SNomCiutat="", SDistancia="", STotal="", CiutatDesti="", CiutatOrigen="";
 	//Obting caracter de lletra
 	static char lletra;
-	static boolean b1=true;
-	static int Total=0;
-	static boolean Final=false;
 	
 	public static void main(String[] args) throws IOException {
 	CarregarInformacio();
@@ -49,7 +43,7 @@ public class Simulacio {
 		//Llegeixo per teclat
 		String Pais=BRLectura.readLine();
 		//En cas de que tingui aquest Pais
-		if (Pais.toUpperCase().equals("ESPANA") || Pais.toUpperCase().equals("DEUTSHLAND")){
+		if (Pais.equalsIgnoreCase("ESPANA") || Pais.equalsIgnoreCase("DEUTSHLAND")){
 			URL direccionFichero = Simulacio.class.getResource(Pais + ".txt");
 			FileInputStream FitxerGPS= new FileInputStream(direccionFichero.getPath());
 			//Llegeixo
@@ -76,7 +70,7 @@ public class Simulacio {
 				//Si es enter
 				if(lletra != '\n'){
 					//Si es diferent a 2 punts i analitzo ciutat
-					if(lletra!=':' && BCiutat==true){
+					if(lletra!=':' && BCiutat){
 						//Concateno
 						SNomCiutat= SNomCiutat+lletra;
 					}
@@ -100,7 +94,7 @@ public class Simulacio {
 						BDistancia=true;
 					}
 					//Si analitzo distancia i lletra es parentesis (obert o tancat)
-					if(BDistancia==true && lletra!='(' && lletra!=')'){
+					if(BDistancia && lletra!='(' && lletra!=')'){
 						//Concateno
 						SDistancia=SDistancia+lletra;
 					}
@@ -130,8 +124,8 @@ public class Simulacio {
 			//Tanco fitxer
 			FitxerGPS.close();
 			//Representacio
-			for (int i = 0; i < VHome.length; i++) {
-				System.out.print(VHome[i] + "  " );
+			for (String s : VHome) {
+				System.out.print(s + "  ");
 			}
 			System.out.println();
 			for (int i = 0; i < VDistanciaCiutats.length; i++) {
@@ -139,7 +133,7 @@ public class Simulacio {
 				for (int j = 0; j < VDistanciaCiutats.length; j++) {
 					System.out.print("  " +VDistanciaCiutats[i][j]);
 				}
-				System.out.println("");
+				System.out.println();
 			}
 			//Indico lo realitzat i pregunto per ciutats
 			System.out.println("\nCartografia de " + Pais + " llesta per buscar ciutats.");
@@ -148,17 +142,18 @@ public class Simulacio {
 			//Comprovacio ciutat origen
 			do{
 				System.out.println("Determina la ciutat d'origen del vostre tragecte");
-				CiutatOrigen=BRLectura.readLine().toString().toUpperCase();
-				for (int i = 0; i < VHome.length; i++) {
+				CiutatOrigen= BRLectura.readLine().toUpperCase();
+				for (String s : VHome) {
 					//Si existeix
-					if (VHome[i].equals(CiutatOrigen)){
-						Bolea=true;
+					if (s.equals(CiutatOrigen)) {
+						Bolea = true;
+						break;
 					}
 				}
-				if (Bolea==false){
+				if (!Bolea){
 					System.out.println("No disposo d'aquesta ciutat");
 				}
-			}while (Bolea==false);
+			}while (!Bolea);
 			System.out.println("------------------------------------------------------------------------------------------------------------------");
 			System.out.println("Has escollit " + CiutatOrigen + " com a ciutat Origen");
 			System.out.println("------------------------------------------------------------------------------------------------------------------");
@@ -167,17 +162,18 @@ public class Simulacio {
 			//Comprovacio ciutat desti
 			do{
 				System.out.println("Determina la ciutat desti del vostre tragecte");
-				CiutatDesti=BRLectura.readLine().toString().toUpperCase();
-				for (int i = 0; i < VHome.length; i++) {
+				CiutatDesti= BRLectura.readLine().toUpperCase();
+				for (String s : VHome) {
 					//Si existeix
-					if (VHome[i].equals(CiutatDesti)){
-						Bolea=true;
+					if (s.equals(CiutatDesti)) {
+						Bolea = true;
+						break;
 					}
 				}
-				if (Bolea==false){
+				if (!Bolea){
 					System.out.println("No disposo d'aquesta ciutat.");
 				}
-			}while (Bolea==false);
+			}while (!Bolea);
 			System.out.println("------------------------------------------------------------------------------------------------------------------");
 			System.out.println("Has escollit " + CiutatDesti + " com a ciutat Desti");
 			System.out.println("------------------------------------------------------------------------------------------------------------------");
@@ -186,12 +182,12 @@ public class Simulacio {
 		//En els diferents casos d'errors
 		else{
 			//Si ho escriuen en l'idiome incorrecte
-			if (Pais.toUpperCase().equals("ALEMANYA") || Pais.toUpperCase().equals("ALEMA�A") || Pais.toUpperCase().equals("GERMANY") || Pais.toUpperCase().equals("SPAIN") || Pais.toUpperCase().equals("SPANIEN")){
+			if (Pais.equalsIgnoreCase("ALEMANYA") || Pais.equalsIgnoreCase("ALEMA�A") || Pais.equalsIgnoreCase("GERMANY") || Pais.equalsIgnoreCase("SPAIN") || Pais.equalsIgnoreCase("SPANIEN")){
 				System.out.println("Aquest pais es diu aixi aqui i a la Xina popular.");
 			}
 			else{
 				//Si escriuen amb catala
-				if(Pais.toUpperCase().equals("ESPANYA")){
+				if(Pais.equalsIgnoreCase("ESPANYA")){
 					System.out.println("\n||*||    ||*||   ||*||   ||*||   ||*||\n");
 					System.out.println("Aquest mapa s'ha d'actualitzar el 2014.\n");
 					System.out.println("||*||    ||*||   ||*||   ||*||   ||*||");

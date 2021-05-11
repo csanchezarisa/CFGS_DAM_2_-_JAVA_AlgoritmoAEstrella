@@ -96,8 +96,7 @@ public class Algoritmo {
                 // Si no se ha encontrado duplicado el nodo, se crea
                 // la ciudad y se añade a la lista de subnodos
                 if (createCity) {
-                    ArrayList<Ciudad> route = new ArrayList<>();
-                    route.addAll(N.getRoute());
+                    ArrayList<Ciudad> route = new ArrayList<>(N.getRoute());
                     route.add(N);
 
                     Ciudad subCity = new Ciudad(
