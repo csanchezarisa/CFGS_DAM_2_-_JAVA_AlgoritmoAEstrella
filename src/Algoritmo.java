@@ -124,8 +124,12 @@ public class Algoritmo {
         // Se busca en la lista de nodos qué nodos hay repetidos
         // en caso de estar repetidos, se añade a la lista para eliminar
         // el que tenga el coste superior
-        for (Ciudad city: L) {
-            for (Ciudad subCity: L) {
+
+        // Bucle paralelo que recorre los nodos ciudad
+        L.parallelStream().forEach(city -> {
+
+            // Bucle paralelo que busca duplicados con el nodo a analizar
+            L.parallelStream().forEach(subCity -> {
 
                 // Si hay algun nodo que se llame igual se añade a la lista de duplicados
                 // el que tenga más coste y no haya sido añadido todavía
@@ -139,8 +143,8 @@ public class Algoritmo {
                             duplicates.add(subCity);
                     }
                 }
-            }
-        }
+            });
+        });
 
         // Se eliminan de la lista 'L' los nodos que se encuentran en la
         // lista de duplicados
